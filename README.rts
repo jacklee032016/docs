@@ -1,14 +1,17 @@
-# docs
+.. highlight:: rst
 
-
-Tcpdump usage examples
-October 1, 2014
+==============
+Tcpdump usage
+==============
 
 In most cases you will need root permission to be able to capture packets on an interface. Using tcpdump (with root) to capture the packets and saving them to a file to analyze with Wireshark (using a regular account) is recommended over using Wireshark with a root account to capture packets on an "untrusted" interface. See the Wireshark security advisories for reasons why.
 
-See the list of interfaces on which tcpdump can listen:
+------------------------------------------------------
+See the list of interfaces on which tcpdump can listen
+------------------------------------------------------
 
 :
+
 `tcpdump -D`
 
 Listen on interface eth0::
