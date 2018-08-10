@@ -56,11 +56,11 @@ Test UDP Perf in PC/Linux
 --------------------------
 
 
- UDP Perf server:
+UDP Perf server:
 ::
  iperf -s -i 10 5 -t 100 -u
 
- UDP Perf client:
+UDP Perf client:
 ::
  iperf --client localhost ---interval 5 -t 10 -u -b 1G
 
