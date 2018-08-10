@@ -23,10 +23,9 @@ iperf -u -s -i 5
 RX Perf
 ^^^^^^^
 
-: board plays as UDP server, only receives packets, never reply 
-
+board plays as UDP server, only receives packets, never reply 
 ::
- iperf --client 192.168.166.2 ---interval 5 -t 100 -u -b 1G 
+ iperf --client 192.168.166.2 --interval 5 -t 100 -u -b 1G 
 
   - -c in client mode, connect to <host>
   - -i Interval for bandwidth report
@@ -67,7 +66,6 @@ Test UDP Perf in PC/Linux
 
 
 tcpdump capture the process of protocol
-
 :: 
  tcpdump -D : list add devices which can be captured;
  tcpdump -n host localhost -v udp -i lo
