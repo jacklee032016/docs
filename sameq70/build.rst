@@ -32,7 +32,7 @@ Support libraries:
 				sys_arch dependent on RTOS: sys_arch.h refer to FreeRTOS.h;
 
 
---------------
+-------------
 Link options
 -------------
 Feb.23rd
@@ -46,7 +46,7 @@ bootloader
 
 ^^^^^^
 OS
-^^^^^^	
+^^^^^^
 
  -dependent on nano libc;
  -nano libc also dependent on syscalls.c (which is from gcc)
@@ -54,8 +54,10 @@ OS
 	- Only when __libc_init_array is not used, '-nostartfiles ' can be used;
 					
  -`-Wl,--gc-sections` must be used; otherwise
+ 
 ::
-		`arm-none-eabi/lib/thumb/v7e-m/crt0.o: In function `_start':
+
+ `arm-none-eabi/lib/thumb/v7e-m/crt0.o: In function `_start':
 					 			(.text+0x64): undefined reference to `__bss_start__' 
 					 			(.text+0x68): undefined reference to `__bss_end__'		`
 
