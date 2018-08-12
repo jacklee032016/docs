@@ -1,8 +1,11 @@
-							Web Socket Development and Test under LwIP
-															Jack Lee, May.18, 2018
++++++++++++++++++++++++++++++++++++++++++++
+Web Socket Development and Test under LwIP
++++++++++++++++++++++++++++++++++++++++++++
+Jack Lee, May.18, 2018
 
+::
 
-curl --include \
+ curl --include \
      --no-buffer \
      --header "Connection: Upgrade" \
      --header "Upgrade: websocket" \
@@ -13,12 +16,15 @@ curl --include \
 		http://example.com:80/
 
 ::
+
  curl -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: echo.websocket.org" -H "Origin: https://www.websocket.org" https://echo.websocket.org
  curl -i -N -H "Connection: Upgrade" -H "Upgrade: websocket" -H "Host: echo.websocket.org" -H "Origin: http://www.websocket.org" http://echo.websocket.org
 
+::
+
  Those flags say:
   - Return headers in the output
-  - Don¡¯t buffer the response
+  - DonÂ¡Â¯t buffer the response
   - Set a header that this connection needs to upgrade from HTTP to something else
   - Set a header that this connection needs to upgrade to a WebSocket connection
   - Set a header to define the host (required by later WebSocket standards)
