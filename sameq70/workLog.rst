@@ -7,6 +7,9 @@ April, 2018	Jack Lee
 Aug.14th, Tuesday 2018
 
 When stack size of mac task is assigned, the OS can't be used?
+When timer task is assigned priority level of 4, OS can't be used?
+
+Ideally, tftp/http send data in maxumum speed of 33 IRQs per second;
 
 MAC ISR:
 	
