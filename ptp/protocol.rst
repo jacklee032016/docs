@@ -10,6 +10,16 @@ BMCA, Best Master Clock
 
 .. math::
 
-  ж┴_t(i) = P(O_1, O_2, бн O_t, q_t = S_i ж╦)
+  ├Б_t(i) = P(O_1, O_2, ┬б┬н O_t, q_t = S_i ┬ж├Л)
+  
+:math:`d_m2m = t^{1} + t_{2}`
+
+
+.. math::
+
+    e^{i\pi} + 1 = 0
+         :label: euler
   
   
+:math:`\underline{x}=[  x_{1}, ...,  x_{n}]^{T}`
+
