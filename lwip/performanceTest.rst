@@ -40,11 +40,11 @@ LwIP Task/Process Architecture
 
 - MAC/NIC Thread
 
-	- Receive packets from hardware, handle mutex access with IRQ service routing
-	
-	  - ISR is registered in CPU IRQ table;
-	  
-	- Send packets to LwIP tcpip.c (tcpip thread);
+ - Receive packets from hardware, handle mutex access with IRQ service routing
+
+   - ISR is registered in CPU IRQ table;
+   
+ - Send packets to LwIP tcpip.c (tcpip thread);
 	
 - tcpip thread
 
