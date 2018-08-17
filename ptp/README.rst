@@ -7,7 +7,7 @@ Aug.16th, 2018
 
 # **Usage**
 
- * **ptpd**
+* **ptpd**
  
 ::
 
@@ -33,7 +33,7 @@ Aug.16th, 2018
 
 # **Build**
 
- * **ptpd**
+* **ptpd**
  
 ::
 
@@ -45,7 +45,7 @@ Aug.16th, 2018
 
 |
 
- * **linuxptp**
+* **linuxptp**
 
 ::
 
