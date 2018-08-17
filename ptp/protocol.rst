@@ -16,9 +16,9 @@ Terms
  * **Ordinary Clock**: client;
  * **Boundary Clock**: server+client;
 
-* **Time Type**
- * **Hardware Clock**: time from PHY/MAC
- * **Software Clock**: recv/sent time in network stack
+* **Timestamp Type**
+ * **Hardware timestamp**: time from PHY/MAC
+ * **Software timestamp**: recv/sent time in network stack, system clock;
 
 * **modes**
  * **E2E** (End to End): 2 nodes connect directly;
@@ -42,10 +42,16 @@ Terms
  * **Announce**: select grand master;
  * **Management message**: 
 
+
+**Clock Servo**
+
+PHC, Ptp Hardware Clock vs System Clock
+
 *********
 Sync
 *********
-** Sync **: t\ :sub:`1`, t\ :sub:`2`
+
+**Sync**: t\ :sub:`1`, t\ :sub:`2`
 
 d\ :sub:`m2s` = t\ :sub:`1` - t\ :sub:`2`
 
