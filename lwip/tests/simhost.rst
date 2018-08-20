@@ -3,6 +3,15 @@ test IP Commands in simhost
 ============================
 June,13, 2018
 
+**Simhost Threads**
+
+ * **main thread**: simhost, paused after everything initialized;
+ * **tcpipd**: TCP/IP protocol;
+ * **tapif_thread**: receive from TAP and send to mainbox of tcpipd;
+
+::
+
+  ps -La
 
 July 11, 2018 Wednesday
 
