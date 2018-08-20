@@ -16,10 +16,10 @@ L3 protocol;
  * **LEAVE**: v2 only; send to all routers;
 
 * **Notes:**
- * Group address for all message are kept in group_address field of message payload;
- * After receiving QUERY, all nodes wait random time below response time, and only one node responses normally;
- * Group or group address is related with one network interface, no matter in which platform, Linux or LwIP;
-  * IGMP and multicast traffic should be initialized with explicit network interface;
+ - Group address for all message are kept in group_address field of message payload;
+ - After receiving QUERY, all nodes wait random time below response time, and only one node responses normally;
+ - Group or group address is related with one network interface, no matter in which platform, Linux or LwIP;
+  - IGMP and multicast traffic should be initialized with explicit network interface;
 
 
 * **IGMP router and IGMP system**
@@ -39,9 +39,9 @@ LwIP Implementation
 ====================
 
 * **states**
- # **NOT_MEMBER**: new
- # **DELAY_MEMBER**: Afte join one group and start timer;
- # **IDEL_MEMBER**: after timeout and send REPORT message, or receive REPORT message from other systems;
+ - **NOT_MEMBER**: new
+ - **DELAY_MEMBER**: Afte join one group and start timer;
+ - **IDEL_MEMBER**: after timeout and send REPORT message, or receive REPORT message from other systems;
  
  
 * **timer**
@@ -59,7 +59,7 @@ check kernel
 ::
 
  grep -i multi /boot/config-<Kernel version>
-         * CONFIG_IP_MULTICAST=y    <¨C
+         * CONFIG_IP_MULTICAST=y    <Â¨C
          * CONFIG_IP_ROUTER=y
          * CONFIG_IP_MROUTE=y
          * CONFIG_NET_IPIP=y  
@@ -71,6 +71,7 @@ Below command will allow eth0 to send multicast traffic::
 Verify the Mutlicast groups in our current system
 
 ::
+
   netstat -g
 
 List add groups in every NIC interface, eg. IGMP join this group at that interface;
