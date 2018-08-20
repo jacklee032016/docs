@@ -20,10 +20,10 @@ Debugging
 	Jlink v618a, jink.exe
 ::	
 
-		connect: ¡ú ATSAME70Q20 ¡ú SWD ¡ú 4000Khz
+		connect: --> ATSAME70Q20 --> SWD --> 4000Khz
 		
-	OK. It means Jlink and its driver jlink64.sys,	JLinkCDC_x64.sys and libusb works fine;
-|	Otherwise, reinstall JLink driver;
+OK. It means Jlink and its driver jlink64.sys,	JLinkCDC_x64.sys and libusb works fine;
+|Otherwise, reinstall JLink driver;
 
 
 2. **Debugging atprogram**:
