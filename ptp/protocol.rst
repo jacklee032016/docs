@@ -34,13 +34,14 @@ Terms
   * **Sync**: Event, s --> c, client get t\ :sub:`2`;
   * **Follow_Up**: , s --> c, server send t\ :sub:`1` in this message to client;
   * **Delay_Req**: Event, c --> s, client save t\ :sub:`3`;
-  * **Delay_Res**: s --> c, server reply t\ :sub:`4` to client;
+  * **Delay_Resp**: s --> c, server reply t\ :sub:`4` to client;
  * **Peer message** 
-  * **Pdelay_req**: Event;
-  * **Pdelay_res**: Event;
-  * **Resp_Follow_Up**: transparent clock; 224.0.0.107
+  * **Pdelay_Req**: Event;
+  * **Pdelay_Resp**: Event;
+  * **Pdelay_Resp_Follow_Up**: transparent clock; 224.0.0.107
  * **Announce**: select grand master;
- * **Management message**: 
+ * **Signaling**:
+ * **Management messages**: 
 
 
 **Clock Servo**
