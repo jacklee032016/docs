@@ -8,8 +8,7 @@ BotBake
 ::
 
   git clone git://git.openembedded.org/bitbake
-
-	bitbake -h
+  bitbake -h
 	
 
 AGL
@@ -35,7 +34,7 @@ Building the AGL Demo Platform for QEMU:
 
 ``  
   ------------ aglsetup.sh: Starting
-Generating configuration files:
+  Generating configuration files:
    Build dir: /root/agl/build
    Machine: qemux86-64
    Features: agl-appfw-smack agl-audio-4a-framework agl-demo agl-hmi-framework agl-netboot agl-profile-graphical agl-profile-graphical-qt5 
@@ -45,13 +44,13 @@ Generating configuration files:
    Config: /root/agl/build/conf/local.conf
    Setup script: /root/agl/build/conf/setup.sh
    Executing setup script ... --- beginning of setup script
---- fragment /root/agl/meta-agl/templates/base/01_setup_EULAfunc.sh
---- fragment /root/agl/meta-agl/templates/base/99_setup_EULAconf.sh
---- end of setup script
-OK
-Generating setup file: /root/agl/build/agl-init-build-env ... OK
------------- aglsetup.sh: Done
-Common targets are:
+ --- fragment /root/agl/meta-agl/templates/base/01_setup_EULAfunc.sh
+ --- fragment /root/agl/meta-agl/templates/base/99_setup_EULAconf.sh
+ --- end of setup script
+ OK
+ Generating setup file: /root/agl/build/agl-init-build-env ... OK
+ ------------ aglsetup.sh: Done
+ Common targets are:
   - meta-agl:          (core system)
     agl-image-minimal
     agl-image-minimal-qa
