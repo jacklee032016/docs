@@ -28,8 +28,8 @@ Timestamp operations:
 
   
 Timestamp, 80 bits, 10 bytes:
-* 48-bit second;
-* 32-bit nanosecond;
+ * 48-bit second;
+ * 32-bit nanosecond;
 
 
 TimeInterval:
