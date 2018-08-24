@@ -3,6 +3,10 @@ PTP, Implementation
 ##############################
 Aug.22nd, 2018
 
+	
+* Fine Clock: 
+* Coarse Clock:	
+
 
 MAC layer operations:
 ::
@@ -12,8 +16,7 @@ MAC layer operations:
 	ETH_PtpTime_SetTime(): fine tune, absolute time;
 	ETH_PtpTime_UpdateOffset(): coarse version, offset
 	ETH_PtpTime_GetTime():
-	
-	
+
 
 Timestamp operations:
 ::
@@ -24,4 +27,12 @@ Timestamp operations:
   ETH_PtpTimestampUpdateOffset(): equal operations of adjtimex(), ntp_adjTimer() and setSystemTimeAdjustment() in Linux;
 
   
+Timestamp, 80 bits, 10 bytes:
+* 48-bit second;
+* 32-bit nanosecond;
+
+
+TimeInterval:
+ * 64 bit nanosecond;
+
   

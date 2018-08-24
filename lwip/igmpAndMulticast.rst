@@ -32,6 +32,8 @@ L3 protocol;
  * 224.0.0.2: all routers
  * 224.0.0.24: IGMP?
  * 224.0.0.251: MDNS
+ * 224.0.0.107: PTP, only for peer measurements;
+ * 224.0.1.129: PTP, except peer delayer measurements;
  
 
 
@@ -48,6 +50,9 @@ LwIP Implementation
  * When one group REPORT has been send out, start timer as 10;
  * When QUERY message is received, start timer as res_time defined in QUERY message;
 
+
+Debegging multicast traffice
+******************************
 
 Debugging with Linux
 =====================
@@ -95,3 +100,28 @@ when setoptions;
 ::
  mdump -Q 0 239.1.1.100 3300 192.168.167.1
          
+
+Debugging multicast traffic with LwIP onboard
+==============================================
+
+Debugging IGMP protocol and multicast in MAC controller:
+
+#. Connect board to switch supports IGMP snooping;
+#. Send IGMP join MULTI_ADDRESS onboard;
+#. Check this MULTI_ADDRESS in IGMP snooping status of switch;
+#. Send multicast packets from PC with ``msend -1 MULTI_ADDRESS port interface_IP``;
+#. Enable packet debug onboard, then multicast packets are received; 
+
+**Notes**
+
+#. When MAC controller's configuration is wrong, multicast packets are not received;
+#. When switch is not received IGMP report, it also fails;
+#. When router (TP-Link) is used, not switch, board need not join the group: the multicast packets are flooded to every port;
+#. When debugging board, the board should be connectted to switch, not router, to minimize odd traffic from router;
+
+
+
+Debugging IGMP protocol
+***************************
+
+
