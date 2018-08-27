@@ -1,8 +1,13 @@
 =============================
 Test of LWIP(LightWeight IP) 
 =============================
-
 January, 2018	Jack Lee
+
+
+* **Random MAC Address**
+ * random number from hardware (TRNG, True RANDOM);
+ * lowest bit of first byte of MAC address must be zero, this is unicast MAC address;
+
 
 May.21st, 2018
 apiClient: 
