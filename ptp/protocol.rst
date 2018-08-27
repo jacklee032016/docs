@@ -64,12 +64,13 @@ Characters of OC/BC:
 
 
 Port Status:
+
 * MASTER;
 * SLAVE;
 * PASSIVE;
 
 
-** PTP Domain**
+**PTP Domain**
 
 
 **Clock Servo**
@@ -84,8 +85,8 @@ Sync
 
 Two-step clocks and one-step clock
 ===================================
-**One-step clock**: Only SYNC message;
-**Two-step clock**: SYNC + FOLLOW_UP;
+* **One-step clock**: Only SYNC message;
+* **Two-step clock**: SYNC + FOLLOW_UP;
 
 Sync and calculation
 ===================================
@@ -107,8 +108,9 @@ d\ :sub:`prop` = (d\ :sub:`m2s` + d\ :sub:`s2m`) /2 : one way delay filter
 
 Δt = d\ :sub:`m2s` - d\ :sub:`prop`  : offset from master, eg. offset between clocks of master/slave
 
-D = (A+B)/2, Driff, Driff compensation, frequenct transfer;
-O = (A-B)/2, Offset, Transfer correction: time transfer;
+**D = (A+B)/2**, Driff, Driff compensation, frequenct transfer;
+
+**O = (A-B)/2**, Offset, Transfer correction: time transfer;
 
 
 LP FIR:
