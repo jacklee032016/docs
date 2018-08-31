@@ -99,7 +99,22 @@ when setoptions;
 **mdump**
 ::
  mdump -Q 0 239.1.1.100 3300 192.168.167.1
-         
+
+
+tcpdump capture multicast packet
+**********************************
+::
+
+  tcpdump -n dst/src host 239.1.1.4
+
+But can't capture any packet;
+::
+
+  mdump 239.1.1.4 48000 192.168.168.102
+
+IGMP join this group in this port, then tcpdump cature all packets;
+
+
 
 Debugging multicast traffic with LwIP onboard
 ==============================================
