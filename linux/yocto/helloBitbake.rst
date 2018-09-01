@@ -14,12 +14,12 @@ BitBake
 Define a project of bitbake
 ==============================
 
-# **BBPATH**
-
+**BBPATH**
+------------
 root directory of bitbake project 
 
-# **conf/bitbake.conf**
-
+**conf/bitbake.conf**
+---------------------------
 Global variable for meta data and recipe files in this bb project
 ::
 
@@ -31,8 +31,8 @@ Global variable for meta data and recipe files in this bb project
   T       = "${TMPDIR}/${PN}/work"
   B       = "${TMPDIR}/${PN}"
 
-# **conf/bblayers.conf**
-
+**conf/bblayers.conf**
+--------------------------
 Layers in this project
 ::
 
@@ -40,8 +40,8 @@ Layers in this project
        /root/yocto/helloBitbake \
        "
 
-# minimally required class, **classes/base.bbclass**
-
+minimally required class, **classes/base.bbclass**
+---------------------------------------------------------
 class file defines code and functions, base.bbclass is inherited by every class
 ::
 
@@ -50,8 +50,8 @@ class file defines code and functions, base.bbclass is inherited by every class
 
 Layers and Recipes
 =======================
-# Layer directory and its configuration file
-
+Layer directory and its configuration file
+--------------------------------------------
  **myLayer/conf/layer.conf**
 ::
 
@@ -63,8 +63,8 @@ Layers and Recipes
   BBFILE_PATTERN_mylayer := "^${LAYERDIR_RE}/"
  
 
-# recipe file in this layer
-
+recipe file in this layer
+--------------------------------
  **myLayer/printHello.bb**
 ::
 
