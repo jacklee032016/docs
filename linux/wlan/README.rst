@@ -1,10 +1,7 @@
 README for WLAN and 802.11 works
 ######################################
 
-About `madwifi`_
+`About madwifi <madwifi.rst>`_
 
-About `WLAN modules`_
+`About WLAN modules <wlanMac80211.rst>`_
 
-.. _madwifi: madwifi.rst
-
-.. _madwifi: wlanMac80211.rst
