@@ -2,19 +2,19 @@ About Madwifi
 ##############################
 
 
-Ä¿Â¼ÓëÄ£¿é
+ç›®å½•ä¸æ¨¡å—
 ==============
 				
-#. Ath: PCI¼°ÆäÓëHALµÄ½Ó¿Ú			
-#. Ath_hal: HAL´Ó¶ş½øÖÆÉÏ²ãÄ¿±êÆ½Ì¨´úÂë			
-#. Ath_rate: ËÙÂÊ¿ØÖÆ			
-#. Include: OSÏà¹ØµÄÍ·ÎÄ¼ş			
-#. Net80211: 802.11Ó²¼şÎŞ¹Ø²¿·Ö			
-#. Openhal: HALµÄÔ´Âë			
-#. Tools: ÅäÖÃºÍ¹ÜÀí¹¤¾ß			
+#. Ath: PCIåŠå…¶ä¸HALçš„æ¥å£			
+#. Ath_hal: HALä»äºŒè¿›åˆ¶ä¸Šå±‚ç›®æ ‡å¹³å°ä»£ç 			
+#. Ath_rate: é€Ÿç‡æ§åˆ¶			
+#. Include: OSç›¸å…³çš„å¤´æ–‡ä»¶			
+#. Net80211: 802.11ç¡¬ä»¶æ— å…³éƒ¨åˆ†			
+#. Openhal: HALçš„æºç 			
+#. Tools: é…ç½®å’Œç®¡ç†å·¥å…·			
 				
 
-Êı¾İ½á¹¹
+æ•°æ®ç»“æ„
 =============
 
 **ieee80211com**
@@ -24,160 +24,161 @@ net_device->priv
 **ath_softc**
 
 
-**ath_ha;**
+**ath_ha**
 
 
 
-³õÊ¼»¯
+åˆå§‹åŒ–
 ===============
 
-attach²Ù×÷
+attachæ“ä½œ
 ------------
-softcµÄËø
+softcçš„é”
 ^^^^^^^^^^
-*. scµÄËø£ºmutex»¥³âËø
-*. txbufËø£ºspinlockËø
+* scçš„é”ï¼šmutexäº’æ–¥é”
+* txbufé”ï¼šspinlocké”
 
 tasklet
 ^^^^^^^^^^^^^
 
-*. fatal£¬³ö´í
-*. radar£ºÌìÏß¸ÉÈÅ£¬ÖØĞÂÉè¶¨ĞÅµÀ£¬»Øµ½INIT×´Ì¬£¬µ÷ÓÃath_init£¨´ò¿ªÍøÂçÉè±¸£¬¼´ifconfig´ËÍø¿¨Ê±£¬Ò²Ö´ĞĞÕâ¸ö²Ù×÷£©
-*. rxorn£ºrx overflow£¬µ÷ÓÃath_reset£¬Ö»¶Ônet_device×÷reset
-*. bmiss£ºbeacon¶ªÊ§£¬´ÓRUN×´Ì¬»áµ½ASSOC×´Ì¬
-*. rxtask£ºÊı¾İ½ÓÊÕµÄÖ÷ÈÎÎñ
-*. bstruck£ºbeaconÍ£Ö¹£¬µ÷ÓÃath_reset£¨ÏòÓ²¼şÉèÖÃmacµØÖ·Ê±£¬Ò²Ö´ĞĞ´Ë²Ù×÷£©
+* fatalï¼Œå‡ºé”™
+* radarï¼šå¤©çº¿å¹²æ‰°ï¼Œé‡æ–°è®¾å®šä¿¡é“ï¼Œå›åˆ°INITçŠ¶æ€ï¼Œè°ƒç”¨ath_initï¼ˆæ‰“å¼€ç½‘ç»œè®¾å¤‡ï¼Œå³ifconfigæ­¤ç½‘å¡æ—¶ï¼Œä¹Ÿæ‰§è¡Œè¿™ä¸ªæ“ä½œï¼‰
+* rxornï¼šrx overflowï¼Œè°ƒç”¨ath_resetï¼Œåªå¯¹net_deviceä½œreset
+* bmissï¼šbeaconä¸¢å¤±ï¼Œä»RUNçŠ¶æ€ä¼šåˆ°ASSOCçŠ¶æ€
+* rxtaskï¼šæ•°æ®æ¥æ”¶çš„ä¸»ä»»åŠ¡
+* bstruckï¼šbeaconåœæ­¢ï¼Œè°ƒç”¨ath_resetï¼ˆå‘ç¡¬ä»¶è®¾ç½®macåœ°å€æ—¶ï¼Œä¹Ÿæ‰§è¡Œæ­¤æ“ä½œï¼‰
 
-*. hal_attach
-*. setxtxdesc£º¶àËÙÂÊÖØ´«Ö§³ÖµÄ¼ì²é£»MIBÖĞ¶Ï£»PHY´íÎóµÄÓ²¼ş¼ÆÊıÆ÷
-*. getchannels£º¹ú¼ÒÂë¡¢ÊÒÍâ¡¢xchanmode£¨bool£©£»Ñ¡Ôñ²»Í¬ĞÅµÀ
-*. rate_setup£ºËÙÂÊÄ£Ê½£¬a/b/g/turbo_a/turbo_g
-*. setcurmode£º11a
-*. ·ÖÅärx+tx descriptor
+* hal_attach
+* setxtxdescï¼šå¤šé€Ÿç‡é‡ä¼ æ”¯æŒçš„æ£€æŸ¥ï¼›MIBä¸­æ–­ï¼›PHYé”™è¯¯çš„ç¡¬ä»¶è®¡æ•°å™¨
+* getchannelsï¼šå›½å®¶ç ã€å®¤å¤–ã€xchanmodeï¼ˆboolï¼‰ï¼›é€‰æ‹©ä¸åŒä¿¡é“
+* rate_setupï¼šé€Ÿç‡æ¨¡å¼ï¼Œa/b/g/turbo_a/turbo_g
+* setcurmodeï¼š11a
+* åˆ†é…rx+tx descriptor
 
-Ó²¼ş´«Êä¶ÓÁĞ
+ç¡¬ä»¶ä¼ è¾“é˜Ÿåˆ—
 ^^^^^^^^^^^^^^^^^^^^
-Ã¿¸öÓ²¼ş¶ÓÁĞÉÏÖÁÉÙÓĞÒ»¸öÈí¼şµÄath_txq¶ÓÁĞ
+æ¯ä¸ªç¡¬ä»¶é˜Ÿåˆ—ä¸Šè‡³å°‘æœ‰ä¸€ä¸ªè½¯ä»¶çš„ath_txqé˜Ÿåˆ—
 
-*. beacon_setup£ºbeaconµÄHW¶ÓÁĞ
-*. txq_setup£ºCAB£¨Crap After Beacon£©µÄxmit¶ÓÁĞ
-*. WME¶ÓÁĞ
-   *. BK¶ÓÁĞ
-   *. BE¶ÓÁĞ
-   *. VI¶ÓÁĞ
-   *. VO¶ÓÁĞ
+* beacon_setupï¼šbeaconçš„HWé˜Ÿåˆ—
+* txq_setupï¼šCABï¼ˆCrap After Beaconï¼‰çš„xmité˜Ÿåˆ—
+* WMEé˜Ÿåˆ—
+   * BKé˜Ÿåˆ—
+   * BEé˜Ÿåˆ—
+   * VIé˜Ÿåˆ—
+   * VOé˜Ÿåˆ—
 
-BK¶ÓÁĞÊÇÄ¬ÈÏÖ§³ÖµÄ£¬ÆäËûWME¶ÓÁĞ±ØĞëÔÚÓ²¼şÓĞ×ã¹»µÄ¶ÓÁĞÊ±£¬²ÅÖ§³Ö
+BKé˜Ÿåˆ—æ˜¯é»˜è®¤æ”¯æŒçš„ï¼Œå…¶ä»–WMEé˜Ÿåˆ—å¿…é¡»åœ¨ç¡¬ä»¶æœ‰è¶³å¤Ÿçš„é˜Ÿåˆ—æ—¶ï¼Œæ‰æ”¯æŒ
 
-*. ´´½¨txtask
-¸ù¾İ¶ÓÁĞ´´½¨µÄ²»Í¬½á¹¹£¬´´½¨²»Í¬µÄtasklet
+* åˆ›å»ºtxtask
 
-*. rate_attach£ºÌìÏßºÍËÙÂÊ¿ØÖÆ
+æ ¹æ®é˜Ÿåˆ—åˆ›å»ºçš„ä¸åŒç»“æ„ï¼Œåˆ›å»ºä¸åŒçš„tasklet
 
-ºËĞÄ¶¨Ê±Æ÷
+* rate_attachï¼šå¤©çº¿å’Œé€Ÿç‡æ§åˆ¶
+
+æ ¸å¿ƒå®šæ—¶å™¨
 ^^^^^^^^^^^^^^
-*. sc_scan_ch
-*. sc_cal_ch£ºĞÅµÀµÄcalibration
-*. sc_ledtimer
+* sc_scan_ch
+* sc_cal_chï¼šä¿¡é“çš„calibration
+* sc_ledtimer
 
 
-ÍøÂç½Ó¿ÚµÄ³õÊ¼»¯
+ç½‘ç»œæ¥å£çš„åˆå§‹åŒ–
 ^^^^^^^^^^^^^^^^^^^^
 
-ÅäÖÃ
+é…ç½®
 ^^^^^^^^^^^^^
-*. phymode£ºT_OFDM
-*. op_mode£ºM_STA
-*. caps£ºIBSS/HOSTAP/MONITOR/short preamble/short slot/WPAºÍÆäËû
+* phymodeï¼šT_OFDM
+* op_modeï¼šM_STA
+* capsï¼šIBSS/HOSTAP/MONITOR/short preamble/short slot/WPAå’Œå…¶ä»–
 
-*. ¹ÜÀíÖ¡µÄ¶ÓÁĞ£ºskb
-*. hastxpwlimit£ºTx Power Control£¨TPC£©µÄ²éÑ¯ºÍÅäÖÃ
-*. frame_burstÄÜÁ¦
-*. ÌìÏßÄÜÁ¦
-*. hasdiversity
-*. getdiversity
-*. getdefaultantenna£ºÄ¬ÈÏÌìÏß
-*. VEOL£¨virtual EOL£©£¬IBSSµÄbeaconÖĞÊ¹ÓÃ
-*. È¡Ó²¼şMACµØÖ·µ½net_device
+* ç®¡ç†å¸§çš„é˜Ÿåˆ—ï¼šskb
+* hastxpwlimitï¼šTx Power Controlï¼ˆTPCï¼‰çš„æŸ¥è¯¢å’Œé…ç½®
+* frame_burstèƒ½åŠ›
+* å¤©çº¿èƒ½åŠ›
+* hasdiversity
+* getdiversity
+* getdefaultantennaï¼šé»˜è®¤å¤©çº¿
+* VEOLï¼ˆvirtual EOLï¼‰ï¼ŒIBSSçš„beaconä¸­ä½¿ç”¨
+* å–ç¡¬ä»¶MACåœ°å€åˆ°net_device
 
 
-ieee80211µÄ³õÊ¼»¯
+ieee80211çš„åˆå§‹åŒ–
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 ieee80211_ifattach
 
-*. radar_init(ic)
+* radar_init(ic)
 
-ÉèÖÃradarµÄ¶¨Ê±Æ÷
+è®¾ç½®radarçš„å®šæ—¶å™¨
 
-*. ieee80211_media_init
+* ieee80211_media_init
 
-sysctlµÄ³õÊ¼»¯
+sysctlçš„åˆå§‹åŒ–
 ^^^^^^^^^^^^^^^^^^^^^^^
 
-*. athµÄ¶¯Ì¬µÄsysctl
-*. rateµÄ¶¯Ì¬µÄsysctl
-*. ieee80211µÄsysctrl
-*. debugÑ¡Ïî
-*. nodeÁĞ±íĞÅÏ¢
+* athçš„åŠ¨æ€çš„sysctl
+* rateçš„åŠ¨æ€çš„sysctl
+* ieee80211çš„sysctrl
+* debugé€‰é¡¹
+* nodeåˆ—è¡¨ä¿¡æ¯
 
-ÔÚÕâÀï£¬¶¯Ì¬µÄsysctlÊÇÖ¸ÓëÊ¶Éè±¸µÄÄ³¸öÊµÀıÏà¹ØµÄsysctl£»¾²Ì¬µÄsysctlÊÇÓëÇı¶¯Èí¼şÏà¹ØµÄsysctl¡£
+åœ¨è¿™é‡Œï¼ŒåŠ¨æ€çš„sysctlæ˜¯æŒ‡ä¸è¯†è®¾å¤‡çš„æŸä¸ªå®ä¾‹ç›¸å…³çš„sysctlï¼›é™æ€çš„sysctlæ˜¯ä¸é©±åŠ¨è½¯ä»¶ç›¸å…³çš„sysctlã€‚
 
-ÍøÂç½Ó¿ÚµÄ³õÊ¼»¯
+ç½‘ç»œæ¥å£çš„åˆå§‹åŒ–
 ----------------------
 
-ieee80211comµÄ³õÊ¼»¯
+ieee80211comçš„åˆå§‹åŒ–
 -----------------------
 
-Êı¾İ½ÓÊÕµÄÁ÷³Ì
+æ•°æ®æ¥æ”¶çš„æµç¨‹
 
 
-IWµÄÊµÏÖ
+IWçš„å®ç°
 ==============
 
-KernelµÄ»úÖÆ
+Kernelçš„æœºåˆ¶
 ----------------
-½Ó¿Ú¶¨Òå
+æ¥å£å®šä¹‰
 ^^^^^^^^^
-*. Linux/wireless.h
-*. Net/iw_handler.h
+* Linux/wireless.h
+* Net/iw_handler.h
 
-»úÖÆÊµÏÖ
+æœºåˆ¶å®ç°
 ^^^^^^^^^^^^
-*. Net/core/wireless.c
+* Net/core/wireless.c
 
-athÄ£¿éµÄ×÷ÓÃ
+athæ¨¡å—çš„ä½œç”¨
 ----------------
 
-¶¨Òå
+å®šä¹‰
 ^^^^^^^^^
-*. ¶¨Òåiw_handler_defÖĞµÄ±ê×¼iw_hanlder±íºÍË½ÓĞiw_handler±í
-*. Á½¸ö±íÖĞµÄº¯ÊıÖ±½ÓÊ¹ÓÃieee80211µÄÊä³öº¯Êı£¬Ò²¼´WLANµÄ¹«¹²¹¦ÄÜÖ÷ÒªÓÉ80211Ä£¿éÀ´ÊµÏÖ
+* å®šä¹‰iw_handler_defä¸­çš„æ ‡å‡†iw_hanlderè¡¨å’Œç§æœ‰iw_handlerè¡¨
+* ä¸¤ä¸ªè¡¨ä¸­çš„å‡½æ•°ç›´æ¥ä½¿ç”¨ieee80211çš„è¾“å‡ºå‡½æ•°ï¼Œä¹Ÿå³WLANçš„å…¬å…±åŠŸèƒ½ä¸»è¦ç”±80211æ¨¡å—æ¥å®ç°
 
-×¢²á
+æ³¨å†Œ
 ^^^^^^^^^^
-*. µ÷ÓÃ80211Ä£¿éµÄº¯ÊıÉèÖÃË½ÓĞ±íµÄ²ÎÊı
-*. Net_deviceµÄwireless_handlerÖ¸Ïòiw_handler_defµÄ±í
+* è°ƒç”¨80211æ¨¡å—çš„å‡½æ•°è®¾ç½®ç§æœ‰è¡¨çš„å‚æ•°
+* Net_deviceçš„wireless_handleræŒ‡å‘iw_handler_defçš„è¡¨
 
-ieee80211Ä£¿éµÄ×÷ÓÃ
+ieee80211æ¨¡å—çš„ä½œç”¨
 ------------------------
 
 
-Á÷³Ì
+æµç¨‹
 ------------
 
-µ÷ÓÃ
+è°ƒç”¨
 ^^^^^^^^
-*. Í¨¹ınet_deviceµÄioctlµ÷ÓÃµ½athÄ£¿é
-*. AthÄ£¿éÔÙµ÷ÓÃieee80211µÄ½Ó¿Úº¯Êı£¬´Ó¶øµ÷ÓÃµ½iw_handler_def¶¨ÒåµÄ´¦Àíº¯Êı
+* é€šè¿‡net_deviceçš„ioctlè°ƒç”¨åˆ°athæ¨¡å—
+* Athæ¨¡å—å†è°ƒç”¨ieee80211çš„æ¥å£å‡½æ•°ï¼Œä»è€Œè°ƒç”¨åˆ°iw_handler_defå®šä¹‰çš„å¤„ç†å‡½æ•°
 
 
-Ad Hoc·½Ê½µÄÅäÖÃºÍÉúĞ§
+Ad Hocæ–¹å¼çš„é…ç½®å’Œç”Ÿæ•ˆ
 =========================
-ÏµÍ³µÄ³õÊ¼»¯¹ı³Ì
+ç³»ç»Ÿçš„åˆå§‹åŒ–è¿‡ç¨‹
 --------------------
-IcÄ¬ÈÏµÄÅäÖÃÄ£Ê½ÊÇSTA£¬STAĞèÒªÓĞÍêÈ«µÄ×´Ì¬£¨Ad HocºÍManagerÄ£Ê½´ÓINITÖ±½Ó½øÈëRUN×´Ì¬£©
+Icé»˜è®¤çš„é…ç½®æ¨¡å¼æ˜¯STAï¼ŒSTAéœ€è¦æœ‰å®Œå…¨çš„çŠ¶æ€ï¼ˆAd Hocå’ŒManageræ¨¡å¼ä»INITç›´æ¥è¿›å…¥RUNçŠ¶æ€ï¼‰
 
-Çı¶¯°²×°ºó£¬net_device´¦ÓÚdown×´Ì¬£¬ÖĞ¶ÏÖĞÁ¢¼´·µ»Ø¡£IfconfigÅäÖÃIPµØÖ·ºó£¬µ÷ÓÃnet_deviceµÄopen²Ù×÷
+é©±åŠ¨å®‰è£…åï¼Œnet_deviceå¤„äºdownçŠ¶æ€ï¼Œä¸­æ–­ä¸­ç«‹å³è¿”å›ã€‚Ifconfigé…ç½®IPåœ°å€åï¼Œè°ƒç”¨net_deviceçš„openæ“ä½œ
 
-Open²Ù×÷ºó£¬Éè±¸½øÈëSCAN×´Ì¬£¨Èç¹ûÊÇAd Hoc»òAPÉè±¸£¬Ôò½øÈëRUN×´Ì¬£©
+Openæ“ä½œåï¼Œè®¾å¤‡è¿›å…¥SCANçŠ¶æ€ï¼ˆå¦‚æœæ˜¯Ad Hocæˆ–APè®¾å¤‡ï¼Œåˆ™è¿›å…¥RUNçŠ¶æ€ï¼‰
 
