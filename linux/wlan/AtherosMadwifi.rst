@@ -1,30 +1,30 @@
-����
+概述
 ########
-������Ϊ�豸�޹ص�802.11���֣�������������802.11�豸��ϣ����豸��ز��֣�PCI�豸IDΪ0x168c��
+驱动分为设备无关的802.11部分（可以与其他的802.11设备结合）和设备相关部分（PCI设备ID为0x168c）
 
-������ģ��
+驱动的模块
 ############
 
 Modules
 ==========
 
-�豸���
+设备相关
 ----------
-*. **ath_hal**: HAL����ȷ�����߷������ڹ��ʺ�Ƶ���Ϸ���FCC��Ҫ��FCCҪ��SDR�ڹ��ʺ�Ƶ���ϲ����������û����壩;
-#. **ath_pci**: оƬ���;
+#. **ath_hal**: HAL，以确保无线发生器在功率和频率上符合FCC的要求（FCC要求SDR在功率和频率上不能由最终用户定义）;
+#. **ath_pci**: 芯片相关;
 #. **ath_rate_*****:
 		
-�豸�޹�
+设备无关
 ----------
-#. wlan.o:802.11״̬����Э���Լ�802.11�豸��Ҫ�ġ��������豸�޹صĹ���;
-#. wlan_wep: ����; AP;
-#. Wlan_tkip: ����; AP;
-#. Wlan_ccmp: ����; AP;
-#. Wlan_acl: ����MAC��ACL; AP;
-#. Wlan_auth: 802.1x��֤; AP;
-#. Wlan_radius: 802.1x��֤; AP;
+#. wlan.o:802.11状态机、协议以及802.11设备需要的、但是与设备无关的功能;
+#. wlan_wep: 加密; AP;
+#. Wlan_tkip: 加密; AP;
+#. Wlan_ccmp: 加密; AP;
+#. Wlan_acl: 基于MAC的ACL; AP;
+#. Wlan_auth: 802.1x认证; AP;
+#. Wlan_radius: 802.1x认证; AP;
 
-�����ļ���˳��
+驱动的加载顺序
 ================
 #. HAL
 #. WLAN
@@ -32,104 +32,104 @@ Modules
 #. PCI
 
 
-ʹ�÷�ʽ
+使用方式
 #############
 
-station/clientģʽ
+station/client模式
 ======================
-��������������������֧�ֵ�Ƶ���ϣ��Զ�ɨ��AP
+配置网卡后，驱动在所有支持的频段上，自动扫描AP
 
-hostapģʽ
+hostap模式
 ==============
 
-* ��iwconfig����
-* ��Ҫ����ʹ�õ�ģʽ�����������Զ�ѡ��
-* ��Ҫ����ϵͳ�����ߺ�����֮���frame����������
+* 用iwconfig配置
+* 需要锁定使用的模式，否则驱动自动选择
+* 需要配置系统在有线和无线之间对frame作网桥作用
 
-ģʽ�б�
+模式列表
 ============
 
-===   ===========
-ID	    ģʽ
-===   ===========
- 0     �Զ�ѡ��
+===   ============
+ID	    模式
+===   ============
+ 0     自动选择
  1     802.11a
  2     802.11b
  3     802.11g
-===  ============
+===   ============
 
 
-4.	���Ի��ƺ͹���
+4.	调试机制和工具
 ########################
 
-===========  ==================================  =============  =================   ==================
-�ڲ�	                    ����	                    ��ع���	    �ο�����	         ͳ�ƹ���
-===========  ==================================  =============  =================   ==================
-Ath�ĵ���	    sysctl �Cw dev.ath.debug=0xXXX	        Athdebug	     If_ath.c	          Athstat
-Wlan�ĵ���	  sysctl �Cw net.wlan.debug=0xXXX      	80211debug	 Ieee80211_var.h	    80211stat
-===========  =================================   =============  =================   ==================
+===========   ==================================   =============   =================   ========================
+内部	                    命令	                    相关工具	    参考代码	     统计工具
+===========   ==================================   =============   =================   ========================
+Ath的调试	    sysctl –w dev.ath.debug=0xXXX	   Athdebug	   If_ath.c	          Athstat
+Wlan的调试	    sysctl –w net.wlan.debug=0xXXX        80211debug      Ieee80211_var.h	  80211stat
+===========   ==================================   =============   =================   ========================
 
-��ȫ�ͼ���
+安全和加密
 
 
-����
+编译
 ############
 
-һ��ı���
+一般的编译
 ============
 
-��Ҫָ��
+需要指定
 
-* ʹ�õ�Ŀ��ƽ̨
-* ʹ�õ�kernelԴ���·������Makefile.inc��ָ��
+* 使用的目标平台
+* 使用的kernel源码的路径：在Makefile.inc中指定
 
 
-֧��VMAC�ı���
+支持VMAC的编译
 ==================
-��Ϊmadwifi�ĳ���Ҫ��VMAC��coreģ����ע��һ��PHY��athphy����һ��MAC��athmac���㣬������ҪVMAC��ͷ�ļ���
+因为madwifi的程序要在VMAC的core模块中注册一个PHY（athphy）和一个MAC（athmac）层，所以需要VMAC的头文件。
 
-������Ҫ֧��VMACʱ��Ҫ��Makefile.inc�н�����VMAC����Ϊyes������ʵ�ʵ�����ṹ��Makefile.inc����VMAC�ĸ�Ŀ¼��������Makefile.inc���޸ģ�������Makefile�У���Ϊ��һ��Ŀ¼�е�Makefile���ܲ���ʶ����µ�Makefile�����Ƕ���ʹ��Makefile.inc��
+所以需要支持VMAC时，要在Makefile.inc中将变量VMAC设置为yes；根据实际的命令结构在Makefile.inc定义VMAC的根目录。必须在Makefile.inc中修改，不能在Makefile中，因为下一级目录中的Makefile可能不能识别根下的Makefile，但是都会使用Makefile.inc。
 
-ʵ���޸ĵ��ļ��У�
+实际修改的文件有：
 
 * Makefile.inc
-* ath/Makefile�����ӱ�Ҫ���ļ�
+* ath/Makefile：增加必要的文件
 
-һ���ֻ��Ҫ�޸�Makefile.inc�е�VMAC�������ɡ�
+一般地只需要修改Makefile.inc中的VMAC变量即可。
 
-֧��VMACӰ��ĵ�ģ���У�
+支持VMAC影响的的模块有：
 
 * ath_pci
 * wlan
 
-ʹ��Open HAL�ı���
+使用Open HAL的编译
 =====================
 
-* ��Makefile.inc�н��Ѿ�ע�͵��ı������HAL��ATH_HAL�򿪣��Ϳ��Ա���Open HAL
-* ��ǰOpen HAL������ʹ��
+* 在Makefile.inc中将已经注释掉的编译变量HAL和ATH_HAL打开，就可以编译Open HAL
+* 当前Open HAL还不能使用
 
-������ļ�
+编译的文件
 -----------
 * ah_osdep.o
 * ar5xxx.o
 * ar5212.o
 * ieee80211_regdomain.o
 
-ʹ��open HAL���ڼ���ath_pciʱ�Ĵ�����Ϣ
+使用open HAL，在加载ath_pci时的错误信息
 ::
 
  ar5k_ar5212_nic_wakeup: failed to reset the AR5212 + PCI chipset
  ath_attach: unable to attach hardware: '<NULL>' (HAL status 22)
 
 
-����
+测试
 =======
-* �������make info�����Բ鿴��ǰ���еı���ѡ��
-* �ڲ���Ҫvmac��MAC��ģ���ǰ���£����Ե�������madwifi��ȫ������
+* 输入命令“make info”可以查看当前所有的编译选项
+* 在不需要vmac的MAC层模块的前提下，可以单独编译madwifi的全部代码
 
-������
+编译结果
 ==========
 
-���ɵĺ��Ŀ���û����򱻿�����modulesĿ¼��
+生成的核心库和用户程序被拷贝到modules目录下
 
 
