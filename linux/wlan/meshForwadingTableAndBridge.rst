@@ -12,12 +12,12 @@
 数据流程
 ========== 
 
-Data Receiving Flow:
+**Data Receiving Flow:**
 
 .. image:: dataRecvFlow.png
 
 
-Data Transferring Flow:
+**Data Transferring Flow:**
 
 .. image:: dataTranFlow.png
 
