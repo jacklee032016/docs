@@ -1,7 +1,7 @@
 
 DHCP service and MAC Address
 ###################################
-Sep.5th,2018	Jack Lee
+Sep.5th, 2018	Jack Lee
 
 Types of MAC Address
 ======================
@@ -49,10 +49,10 @@ Types of DHCP timers
 Basic bind process
 ------------------------
 
-* Client boardcast DISCOVERY message;
-* Server boardcast OFFER message: contains unleased IP address, client hw address and others in DHCP message;
-* Client boardcast REQUEST message: want to bind this unleased IP address;
-* Server boardcast ACK message;
+* Client boardcast **DISCOVERY** message;
+* Server boardcast **OFFER** message: contains unleased IP address, client hw address and others in DHCP message;
+* Client boardcast **REQUEST** message: want to bind this unleased IP address;
+* Server boardcast **ACK** message;
 
 Afte than, communication is based on unicast address;
 
@@ -61,11 +61,12 @@ Binding for Random MAC and UNI MAC
 ------------------------------------
 
 Timeout of discovery process:
+
 * In discovery process, timeout of fine_timer is using algorithm of backoff, every retry will double the timeout;
 * The first timeout is set as 2000ms, it always fails for random MAC;
    * It may works for MAC addres which has been used in this LAN when timeout is 2000ms;
 * Initial timeout must be 4000ms, then random MAC address works;
-* The first DOSCOVERY message always fails no matter what timeout it is???
+* The first **DISCOVERY** message always fails no matter what timeout it is???
 
 * No explicit difference between random MAC and UNI MAC when first binds the MAC with DHCP;
 
