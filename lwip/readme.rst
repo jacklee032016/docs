@@ -1,5 +1,5 @@
 =============================
-Test of LWIP(LightWeight IP) 
+Test of LwIP(Lightweight IP) 
 =============================
 January, 2018	Jack Lee
 
