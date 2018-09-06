@@ -32,7 +32,12 @@ Timeout and Timers in LwIP
 ---------------------------
 cyclic timers
 ^^^^^^^^^^^^^^^
-Timers are intenal in protocol stack, such as **tcp fast timer**, **tcp slow timer**, and **igmp_timer**;
+Timers are intenal in protocol stack, such as **tcp fast timer**, **tcp slow timer**, and **igmp_timer**, **dhcp_fine_tmr**, **dhcp_coarse_tmr**, etc.
+
+* tcp_fast_timer: every 500ms; tcp_poll() is based on it;
+* tcp_coarse_timer: every 2 seconds;
+
+
  
 system_timeo
 ^^^^^^^^^^^^^^
