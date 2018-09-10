@@ -10,6 +10,8 @@ BitBake
   git clone git://git.openembedded.org/bitbake
   bitbake -h
 	
+  git clone git://github.com/openembedded/openembedded
+  git clone git://github.com/openembedded/openembedded-core
 
 AGL
 ===================
