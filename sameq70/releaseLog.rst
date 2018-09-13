@@ -3,6 +3,21 @@ Release version and log
 ##################################
 Sep.7th, 2018	Jack Lee
 
+09.13, 2018
+====================
+* Debuggin the problem of memory leakage in case of re-send IP 'set_media' command in TX when no-reply from 811;
+* Prioritise the response of IP commands:
+  * Implement IP command in independent task;
+  * Move the priority level of IP command Task to maximum;
+* Debugging the start/stop of TX and RX:
+  * Send 'set_param' with parameter of `{"IsConnect": 1}`;
+  * For RX, leaving the IGMP group in switch/router;
+  * For TX: 
+     * configure register to disable media streams;
+     * check register of SDI statuss;
+     * Update new FPGA firmware to support enable/disable media transmission;
+* Bootloader delay more 200 ms to load OS when firmware is updated;
+     
 
 09.07, 2018
 ===================
@@ -28,3 +43,4 @@ Sep.7th, 2018	Jack Lee
 * Default network setup is DHCP in factory configuration;
 * Add reset logic for FPGA in RX when new IP/MAC/ports are configured;
 * Optimize some message output from UART console;
+* Modify bootloader to be more compatible with futural update of OS;
