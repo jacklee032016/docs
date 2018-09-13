@@ -7,12 +7,15 @@ Sep.7th, 2018	Jack Lee
 ====================
 * Debuggin the problem of memory leakage in case of re-send IP 'set_media' command in TX when no-reply from 811;
 * Prioritise the response of IP commands:
+
   * Implement IP command in independent task;
   * Move the priority level of IP command Task to maximum;
 * Debugging the start/stop of TX and RX:
+
   * Send 'set_param' with parameter of `{"IsConnect": 1}`;
   * For RX, leaving the IGMP group in switch/router;
   * For TX: 
+  
      * configure register to disable media streams;
      * check register of SDI statuss;
      * Update new FPGA firmware to support enable/disable media transmission;
