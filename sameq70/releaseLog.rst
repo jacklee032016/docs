@@ -6,9 +6,22 @@ Sep.7th, 2018	Jack Lee
 09.20, 2018
 ====================
 * Reconfigure FPGA both before and after network is configured;
-   * For TX: configure the default IP address before network; network is actived(DHCP/static); configure with active IP address;
-   * For RX: Configure default IP address and don't join multicast group; network is active(DHCP/static); configure with active IP address and join group;
+   * For TX: 
+      * configure the default IP address before network; 
+      * network is actived(DHCP/static); 
+      * configure with active IP address;
+      * start media transmission;
+   * For RX: 
+      * Configure default IP address and don't join multicast group (network interface is not available now); (add reset and release reset as specs from FPGA)
+      * network is active(DHCP/static); 
+      * configure with active IP address and join group;
+      * No start register is usable in RX;
 * Add RS232 task to monitor RS232 and read back;
+* Add delay when bootloader loading OS to test;
+* Debugging the problem when 2 RXes are used in same LAN;
+* Debugging the problem when command 'net 1' is used;
+* Debugging the problem of receiving too much packets in MCU when bootup, make it more stronger;
+
 
 09.13, 2018
 ====================

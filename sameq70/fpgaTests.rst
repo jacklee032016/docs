@@ -43,7 +43,7 @@ FPGA Updating Logs
 
 TX
 ************
-* **09.14, 2018**: 2 phases of configure FPGA;
+* **09.14, 2018**: 2 phases of configure FPGA; version 09.14 15:04 works; 09.14 17:16 not work;
 
 * **09.13, 2018**: register 03 to disable all media(0x00) and enable them (0x00);
 
