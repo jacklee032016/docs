@@ -10,7 +10,11 @@ When receives set_params, reply set_param to port of 3840
 ----------------------------------------------------------
 
 Parameters List:
+=======================
+Following are parameters which can be set/modified by IP command ``set_param``.
 
+System Parameters
+---------------------
 * **cName**: customized name, maximum size of 32;
 
 ::
@@ -26,19 +30,124 @@ Parameters List:
 * **MCASTip**: set multicast IP address which is used when DIP switch is disabled;
 
 
-* **isDhcp** and **ip** : DHCP enabled/disabled and IP address;
+* **isDhcp** and **ip** : set DHCP enabled/disabled and IP address; active after reboot;
 
 ::
 
-  '{"ip":"192.168.168.121","isDhcp":1}'
+  '{"ip":"192.168.168.121","isDhcp":0}'
+
+
+* **mask**: set netmask of network interface; active after reboot;
+
+::
+
+  'mask': '255.255.0.0'
+
+* **gateway**: set gateway address of network interface; active after reboot;
+
+::
+
+	'{"gateway":"192.168.168.2"}'
+
+
+* **mac** : set MAC address and disable random MAC address;
+
+::
+
+	'{"mac":"12:22:33:44:55:66"}'
+
   
 * **IsConnect**: connect or disconnect media; for TX, stop media; for RX, leave the group;
 
 ::
 
 	'{"IsConnect":0|1}'
-	
-* **RS232Baudrate**: set and save; then **``send_data_rs232``** can send data with this baudrate;
+
+
+Protocol Parameters
+-----------------------
+
+* **vidPort**: set port of video stream;
+
+::
+
+	{"vidPort":11220}'
+
+
+* **audPort**: set port of audio stream;
+
+::
+
+	{"audioPort":11222}'
+
+
+* **datPort**: set port of anccilary data;
+
+::
+
+	'{"datPort":11240}'
+
+
+* **strPort**: set port of anccilary strea;
+
+::
+
+	'{"strPort":11260}'
+
+
+Media Parameters
+-----------------------
+Media parameters are read from FPGA and sent to 811 by TX; and 811 resend them to RX; then RX configure FPGA;
+
+MCU never save media parameters;
+
+* **vidW**: set video width;
+
+::
+
+	'{"vidW":1260}'
+
+
+* **vidH**: set video height;
+
+::
+
+	'{"vidH":720}'
+
+
+* **vidClrSpace**: set video color space; "YCbCr-422|YCbCr-444|RGB|YCbCr-420|XYZ|KEY|CLYCbCr-422|CLYCbCr-444|CLYCbCr-420"
+
+::
+
+	'{"vidClrSpace":"RGB"}' 
+
+
+* **vidFps**: set video frame rate; 23|24|25|29|30|50|59|60;
+
+::
+
+	'{"vidFps":23}' 
+
+
+* **vidIsSgmt**: set video Interlaced and Segmented, interlac bit 0 , segmented bit 1; so set as 0|1|2|3;
+
+::
+
+	{"vidIsSgmt":3}'
+
+
+* **vidDepth**: set color depth, 8|10|12|16;
+
+::
+
+	'{"vidDepth":12}'
+
+
+
+RS232 Parameters 
+------------------------
+
+* **RS232Baudrate**: set 9600|19200|38400|57600|115200 and save; then **``send_data_rs232``** can send data with this baudrate;
 
 ::
 
@@ -50,17 +159,17 @@ Parameters List:
 
   '{"RS232Parity":"odd"}'
 
-* **RS232Databits**: set as "odd/even/none";
+* **RS232Databits**: set as 5|6|7|8;
 
 ::
 
   '{"RS232Databits":7}'
 
-* **RS232Stopbits**: set as "odd/even/none";
+* **RS232Stopbits**: set as 1|2|3; here, 3 means 1.5 bits;
 
 ::
 
-  '{"RS232Stopbits":0}'
+  '{"RS232Stopbits":1}'
 
 
 
