@@ -26,7 +26,7 @@ Parameters List:
 * **MCASTip**: set multicast IP address which is used when DIP switch is disabled;
 
 
-# **isDhcp** and **ip** : DHCP enabled/disabled and IP address;
+* **isDhcp** and **ip** : DHCP enabled/disabled and IP address;
 
 ::
 
