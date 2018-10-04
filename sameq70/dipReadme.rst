@@ -7,13 +7,10 @@ Primitives
 =============
 Make new multicast IP effective
 ---------------------------------
-*. Remove existed group(RX only);
-
-*. Group address from backup;
-
-*. Join new group(RX only);
-
-*. Configure FPGA;
+#. Remove existed group(RX only);
+#. Group address from backup;
+#. Join new group(RX only);
+#. Configure FPGA;
 
 
 Events
@@ -21,26 +18,26 @@ Events
 
 ON --> OFF
 -------------
-*. New group address from backup;
+#. New group address from backup;
 
-*. Make new multicast IP effective;
+#. Make new multicast IP effective;
 
-*. Save to non-volatile;
+#. Save to non-volatile;
 
 OFF --> ON
 -------------
-*. New group address from DIP switch;
+#. New group address from DIP switch;
 
-*. Make new multicast IP effective;
+#. Make new multicast IP effective;
 
-*. Save to non-volatile;
+#. Save to non-volatile;
 
 
 Set Multicast IP
 ---------------------
-*. Save new multicast IP into backup;
+#. Save new multicast IP into backup;
 
-*. If DIP switch is OFF, make new multicast IP effective;
+#. If DIP switch is OFF, make new multicast IP effective;
 
 
 
@@ -85,19 +82,20 @@ Save and list backup multicast address
 Test Cases
 ===============
 
-*. DIP ON boot/reboot
+#. DIP ON boot/reboot
 
-*. DIP ON --> OFF, and reboot;
+#. DIP ON --> OFF, and reboot;
 
-*. DIP OFF --> ON, and reboot;
+#. DIP OFF --> ON, and reboot;
 
-*. Change DIP switch when DIP is ON;
+#. Change DIP switch when DIP is ON;
 
-*. Change DIP switch when DIP is OFF;
+#. Change DIP switch when DIP is OFF;
 
-*. Change Multicast IP when DIP is ON;
+#. Change Multicast IP when DIP is ON;
 
-*. Change Multicast IP when DIP is OFF;
+#. Change Multicast IP when DIP is OFF;
 
-*. Change Multicast IP with unicast IP address: wrong;
-*. Change Multicast IP with multicast IP address: Ok, save to non-volatile
+#. Change Multicast IP with unicast IP address: wrong;
+#. Change Multicast IP with multicast IP address: Ok, save to non-volatile
+

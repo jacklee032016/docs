@@ -3,6 +3,58 @@ Release version and log
 ##################################
 Sep.7th, 2018	Jack Lee
 
+10.03, 2018
+====================
+
+When receives set_params, reply set_param to port of 3840
+----------------------------------------------------------
+
+Parameters List:
+#. **cName**: customized name, maximum size of 32;
+::
+
+    '{"cName":"JackLeeRX01"}'
+
+#. **isDipOn**: Set DIP switch is enabled or disabled;
+::
+
+  '{"isDipOn":0|1}'
+
+#. **MCASTip**: set multicast IP address which is used when DIP switch is disabled;
+
+
+#. **isDhcp** and **ip** : DHCP enabled/disabled and IP address;
+::
+
+  '{"ip":"192.168.168.121","isDhcp":1}'
+  
+#. **IsConnect**: connect or disconnect media; for TX, stop media; for RX, leave the group;
+::
+
+	'{"IsConnect":0|1}'
+	
+#. **RS232Baudrate**: set and save; then **``send_data_rs232``** can send data with this baudrate;
+::
+
+	'{"RS232Baudrate":115200}'
+	
+#. **RS232Parity**: set as "odd/even/none";
+::
+
+  '{"RS232Parity":"odd"}'
+
+#. **RS232Databits**: set as "odd/even/none";
+::
+
+  '{"RS232Databits":7}'
+
+#. **RS232Stopbits**: set as "odd/even/none";
+::
+
+  '{"RS232Stopbits":0}'
+
+
+
 09.20, 2018
 ====================
 * Reconfigure FPGA both before and after network is configured;
