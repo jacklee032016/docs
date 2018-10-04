@@ -98,3 +98,6 @@ Test Cases
 *. Change Multicast IP when DIP is ON;
 
 *. Change Multicast IP when DIP is OFF;
+
+*. Change Multicast IP with unicast IP address: wrong;
+*. Change Multicast IP with multicast IP address: Ok, save to non-volatile
