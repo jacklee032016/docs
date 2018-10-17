@@ -3,6 +3,10 @@ Release version and log
 ##################################
 Sep.7th, 2018	Jack Lee
 
+10.17, 2018
+====================
+Add function of GPNVM updating in bootloader;
+
 10.03, 2018
 ====================
 
