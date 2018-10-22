@@ -1,13 +1,20 @@
 
+##########################################
 Programming ATMEL chip with atprogram
-#######################################
+##########################################
+
+
 August.20, 2018	Jack Lee
 
-Modifying GPNVM
-=============================
-Oct.17, 2018
+====================================
+Modifying GPNVM (Oct.17, 2018)
+====================================
+
+* Test
+
 
 References:
+----------------
 * 9.1.5.11 GOVNM bits
 * 20.3 section
 
@@ -68,9 +75,10 @@ Read out contents:
 		LOCKBIT_WORD0 (0b00000000000000000000000000000000 <-> 0x00000000)	
 
 Only when GPNVM is 0x0042, everything is OK;
-	
+
+==============================
 Background of updating fuses
-------------------------------
+==============================
 	
 Setting GPNVM bits is done with the commands for setting "Fuse bytes". Here is an example that sets GPNVM BIT Boot_Mode to 1 and GPNVM bit6 to 1 and others to 0:
 
@@ -82,7 +90,7 @@ Setting GPNVM bits is done with the commands for setting "Fuse bytes". Here is a
 	
 	D:\rtos\rtosLwip\an767>atprogram -t samice -i swd -d atsame70q20 write -fs --values 0100001000| 03000042 -v : write 0x03
 
-Update: Please notice you don¡ät come arround of touching bit #6 ("Reserved") with this method. Atmel support confirmed to me it should always be set to 1 (I had some strange behavoiur when it was set to 0).
+Update: Please notice you donÂ¡Ã¤t come arround of touching bit #6 ("Reserved") with this method. Atmel support confirmed to me it should always be set to 1 (I had some strange behavoiur when it was set to 0).
 
 ::
 
@@ -96,6 +104,7 @@ Update: Please notice you don¡ät come arround of touching bit #6 ("Reserved") wi
 
 Value Format
 ---------------------------
+
  ``low/high/ext``
  
  GPNVM only 9 bits, but atprogram look it as 16-bit, 0xLLHH, LL is bit0-bit7, HH is bit8-bit15;
@@ -149,19 +158,22 @@ Help of atprogram
 
    atprogram help CMD
 
+This is end of command
 
-Hardware ERASE 
-=================
+
+==============================
+Hardware ERASE
+==============================
+
 When SECURITY bit of GPNVM is 1, JTAG can't connect to chip and update firmware. This is so-called **security**;
 
 * **ERASE** pin, pin87, connect to R37; R38 connect to Power positive pin;
 * connect R37 and R38, then every bits in GPNVM is cleared;
 * ``atprogram`` program flash, and GPNVM is changed to 0x02 automatically; bootloader can boot at once;
 
-
-
+=================================
 Programming fails without reason
-==================================
+=================================
 
 ::
 
@@ -169,11 +181,12 @@ Programming fails without reason
 
 
 Debugging
-^^^^^^^^^^^
+----------------------------
 	
 1. **SEGGER JLink to connect to device**:
 	
-	Jlink v618a, jink.exe
+Jlink v618a, jink.exe
+	
 ::	
 
 		connect: --> ATSAME70Q20 --> SWD --> 4000Khz
@@ -208,5 +221,3 @@ Then, everything is OK!
 **Note**: 
 
 After 'Device Pack Manager' installs device files, never start Atmel Studio again!!!
-
-
