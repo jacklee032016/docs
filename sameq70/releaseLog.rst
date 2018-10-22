@@ -3,6 +3,11 @@ Release version and log
 ##################################
 Sep.7th, 2018	Jack Lee
 
+Oct.22, 2018
+====================
+Debug bootup problem of bootloader caused by RS232 driver when chip is null or chip is ``chiperase``d;
+
+
 10.17, 2018
 ====================
 Add function of GPNVM updating in bootloader;
