@@ -3,6 +3,45 @@ GIT and Branch
 #########################
 10.22, 2018
 
+Usage
+====================
+10.25, 2018
+
+Create and usae branch 
+-------------------------
+
+::
+
+  git checkout -b httpOptimizing
+
+Modify and push to remote
+----------------------------
+# git remote add httpRemoteOpti httpOptimizing
+
+# git push httpRemoteOpti https://github.com/jacklee032016/rtosLwip.git 
+
+::
+
+  git push -u origin httpOptimizing
+
+Fetch and use branch
+----------------------
+
+::
+
+   git fetch origin httpOptimizing: now ``git branch`` show nothing about new branch
+
+   git checkout httpOptimizing
+   
+   git branch: show all 2 branches
+
+Notes:
+-------
+
+::
+
+  git pull origin httpOptimizing: means ``git fetch origin httpOptimizing && git merge httpOptimizing``
+
 
 What is Branch
 ===========================
