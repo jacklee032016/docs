@@ -1,20 +1,17 @@
-=========================================
 HTTP Server and Optimization
-=========================================
-
+###############################
 Oct.25,2018	Jack Lee
 
-
 Test Cases
-----------------
-*. poll: telnet connect and not input anything;
-*. small packets to assemble HTTP request: Windows telnet: parse header or length of input string;
-*. invalidate URL; reply 404; for REST API, reply JSON 404;
-*. Service and reply big file, such as 12KK logo.jpg;
-*. Performance: number of PBUF_POOL, and TCP_PCB;
+===============
+#. poll: telnet connect and not input anything;
+#. small packets to assemble HTTP request: Windows telnet: parse header or length of input string;
+#. invalidate URL; reply 404; for REST API, reply JSON 404;
+#. Service and reply big file, such as 12KK logo.jpg;
+#. Performance: number of PBUF_POOL, and TCP_PCB;
 
 Enhancements
-----------------
+===================
 * HTTP_CONN use memory pool, which pre-allocates fixed number of CONNS;
 
 * Receive request from multiple pbuf;
@@ -23,26 +20,26 @@ Enhancements
 
 
 Debuggings 
------------------
+===================
 * When send all data, close connection directly:
    * only close connection when enter into CLOSE state;
 
 * PBUF_POOL are used up, and can't connect again; 
-  *And no PBUF_POOL message is keeping prompting: tcp task always work; 
-  After about 64 CONNs : every HTTP CONN use one pbuf, and not free;
-			* add ref count by one when enqueue pbuf of request;
+  * And no PBUF_POOL message is keeping prompting: tcp task always work; 
+  * After about 64 CONNs : every HTTP CONN use one pbuf, and not free;
+* add ``ref`` count by one when enqueue pbuf of request;
 
 
 
 HTTP Request Headers Parsing
-------------------------------
+=================================
 * ``content-length`` is for the data posted by request, not in header;
-   ```content-length:application/json`` means POSTed data is in json format;
+   * ```content-length:application/json`` means POSTed data is in json format;
 * ``accept:*/*,application/json`` means the HTTP response can be in json format;
 
 
 Parsing Headers
-^^^^^^^^^^^^^^^^^^^
+=======================
 * REST API: 
 * SDP???
 * Web Socket;
@@ -59,6 +56,7 @@ Design
 
 States
 ---------------
+
 REQ(uest)
 ^^^^^^^^^^^^^
 * After connection is created, and is in this state;
@@ -85,6 +83,7 @@ ERROR
 
 Events
 -----------------
+
 error
 ^^^^^^^^^
 Some error from client, such as broken; and TCP_PCB is deallocated now;
@@ -129,7 +128,7 @@ TCP_PCB
 * All TCP_PCB operations are handled in TCP task;
 * After CONN is freed by HTTPd task, when next event (not error event) is emmitted, 
    * call ``tcp_close()`` and set all the callbacks of TCP is null;
-   * but poll event with TCP state of CLOSE_WAIT()?????
+   * but poll event with TCP state of ``CLOSE_WAIT()``?????
 
 
 HTTP CONNECTION
@@ -157,29 +156,27 @@ Concepts
    * For X86, SND_BUF is 4 times: 4*1460 = 5840;
    * The maximum size of static file is about 13KB, so twice for maximum file;
    
-* HTTP Service Types:
-^^^^^^^^^^^^^^^^^^^^^^^^
+HTTP Service Types
+------------------------
 
-   *. Web Socket;
-   *. REST API;
-   *. Static files;
-   *. CGI, dynamic content from program;
-   *. Update firmware;
-   *. SDP;
+#. Web Socket;
+#. REST API;
+#. Static files;
+#. CGI, dynamic content from program;
+#. Update firmware;
+#. SDP;
 
-* METHOD types
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-*. GET
-*. POST
-*. PUT
-*. DELETE
-*. PATCH
+METHOD types
+------------------
+#. GET
+#. POST
+#. PUT
+#. DELETE
+#. PATCH
 
 
 HTTP connections pool and heap memory
-^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+-------------------------------------------
 * pre-allocated memory HTTP connections pool in memp;
-
 * otherwise, HTTP connection is allocated from LwIP heap by ``mem_allocte()`` from LwIP;
-
 * Heap size : 16KB
