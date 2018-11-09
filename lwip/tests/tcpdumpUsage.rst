@@ -1,4 +1,22 @@
 
+Advanced Usage
+=====================
+
+::
+
+   tcpdump -i tap0 '((tcp) and (port 50000) and ((src host 192.168.166.2)))'
+
+   tcpdump -i eth1 '((icmp) and ((ether dst host 00:01:02:03:04:05)))'
+
+   tcpdump -i eth1 '((tcp) and ((dst net 192.168) and (not dst host 192.168.1.200)))'
+
+   tcpdump -i eth1 src port 25 
+
+
+		tcpdump -i eth1 arp|ip|tcp|udp|icmp
+		
+		
+
 ==============
 tcpdump Usage
 ==============
