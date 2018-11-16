@@ -14,6 +14,8 @@ curl -d "urlSdpVideo=http://192.168.166.2/vedio.sdp&urlSdpAudio=http://192.168.1
 &portData=23458&portStrem=23460&videoWidth=1240&videoHeight=768&colorSpace=CLYCbCr-422&colorDepth=16&videoFps=59&audioChannels=8" -X POST http://192.168.166.2/setting 
 
 
+curl -d "sdpVideoIp=192.168.166.2&sdpVideoPort=80&sdpVideoUri=/video.sdp&sdpAudioIp=192.168.166.2&sdpAudioPort=80&sdpAudioUri=/audio.sdp" -X POST http://192.168.167.3/sdpClient -i
+
 
 Test Cases
 ===============

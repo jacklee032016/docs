@@ -9,7 +9,9 @@ HTML
 --------
 #. /: GET, HTML
 #. /info: GET, HTML
-#. /media: POST, HTML --> /setting: POST, JSON
+#. /media: POST, HTML 
+  # --> /setting: POST, JSON
+  # --> /sdpClient: POST, begin HTTP Client
 #. /reboot: GET, HTML
 #. /mcuUpdate: POST, from /upgradeMcu.html
 #. /fpgaUpdate: POST, from /upgradeFpga.html
