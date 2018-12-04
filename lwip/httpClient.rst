@@ -16,6 +16,8 @@ curl -d "urlSdpVideo=http://192.168.166.2/vedio.sdp&urlSdpAudio=http://192.168.1
 
 curl -d "sdpVideoIp=192.168.166.2&sdpVideoPort=80&sdpVideoUri=/video.sdp&sdpAudioIp=192.168.166.2&sdpAudioPort=80&sdpAudioUri=/audio.sdp" -X POST http://192.168.167.3/sdpClient -i
 
+curl -d "sdpVideoIp=192.168.168.102&sdpVideoPort=80&sdpVideoUri=/video.sdp&sdpAudioIp=192.168.168.102&sdpAudioPort=80&sdpAudioUri=/audio.sdp" -X POST http://192.168.168.103/sdpClient -i
+
 
 Test Cases
 ===============
@@ -27,6 +29,7 @@ Test Cases
 
 
 
+curl --header "Content-Type: application/json" http://192.168.166.2/service | python -mjson.tool
 
 hc 192.168.166.2 80 video.sdp
 
@@ -34,3 +37,11 @@ hc 192.168.167.3 80 video.sdp
 
 hc 192.168.167.3 80 service
 
+
+curl --header "Content-Type: application/json" \
+  -X POST  \
+  --data '{"name":"767-TX-1","sdpVideoPort":"80", "sdpAudioPort":"80", "ipVideo":"239.100.1.1", "ipAudio":"239.100.1.2", \
+	"portVideo":48000,"portAudio":48010,"portData":48020,"portStrem":48030, "videoHeight":1080, "videoWidth":1920, "videoFps":59, \
+	"colorSpace":"YCbCr-444", "colorDepth":16, "videoIsSgmt":1, "audioSampRate":48000, "audioChannels":2, "audioDepth":16,}' \
+  http://192.168.166.2/service
+  

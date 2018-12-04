@@ -26,6 +26,51 @@ SDP
 #. /video.sdp: GET, SDP
 #. /audio.sdp: GET, SDP
 
+Test Cases
+===============
+
+REST API tests
+-------------------
+
+curl -H "Content-Type: application/json" POST   -d '{"name":"Jack-RX", "isDHCP":0, "fpgaAuto":0}' http://192.168.168.102/service -v -i
+
+curl -H "Content-Type: application/json" POST   -d '{"name":"Jack-RX2", "isDHCP":0, \
+"sdpVideoIp":"192.168.168.101", "sdpVideoPort":80, "sdpVideoUri":"video.sdp", "sdpAudioIp":"192.168.168.101", "sdpAudioPort":80, "sdpAudioUri":"audio.sdp", \
+"ipVideo":"239.100.1.1", "ipAudio":"239.100.1.2", "ipAnc":"239.100.1.3", "portVideo":48000, "portAudio":48010, "portData":48020, \
+"fpgaAuto":1, "videoHeight":1080, "videoWidth":1920, "videoFps":59, "colorSpace":"YCbCr-444", "colorDepth":16, "videoIsIntlce":1, \
+"audioSampRate":"44.1KHz", "audioChannels":2, "audioDepth":16, "audioPktSize":"1ms", "isConnect":0 }' http://192.168.168.102/service -v -i
+
+
+Simple REST API:
+
+curl -H "Content-Type: application/json" POST   -d '{"name":"SdiOverIP-767", "sdpVideoIp":"192.168.167.3", "sdpVideoPort":80, "sdpVideoUri":"video.sdp" }' http://192.168.167.3/service -v -i
+
+
+REST API for one set of parameters:
+
+curl -H "Content-Type: application/json" POST   -d '{"name":"Jack-RX", "version":"00.01-01", "address":"192.168.167.4", "gateway":"192.168.167.1", "isDHCP":4, "MAC":"00:04:25:1c:a0:02", \
+"sdpVideoIp":"192.168.167.4", "sdpVideoPort":8080, "sdpVideoUri":"video2.sdp", "sdpAudioIp":"192.168.167.4", "sdpAudioPort":8080, "sdpAudioUri":"audio2.sdp", \
+"ipVideo":"239.100.11.1", "ipAudio":"239.100.12.2", "ipAnc":"239.100.13.3", "portVideo":48100, "portAudio":48210, "portData":48320, \
+"fpgaAuto":1, "videoHeight":720, "videoWidth":1080, "videoFps":23, "colorSpace":"YCbCr-444", "colorDepth":16, "videoIsIntlce":3, \
+"audioSampRate":"96KHz", "audioChannels":4, "audioDepth":24, "audioPktSize":"125mks", "isConnect":0 }' http://192.168.167.3/service -v -i
+
+
+REST API for another set of parameters:
+
+curl -H "Content-Type: application/json" POST   -d '{"name":"SdiOverIP-767", "version":"00.01-01", "address":"192.168.167.3", "gateway":"192.168.167.1", "isDHCP":0, "MAC":"00:04:25:1c:a0:02", \
+"sdpVideoIp":"192.168.167.3", "sdpVideoPort":80, "sdpVideoUri":"video.sdp", "sdpAudioIp":"192.168.167.3", "sdpAudioPort":80, "sdpAudioUri":"audio.sdp", \
+"ipVideo":"239.100.1.1", "ipAudio":"239.100.1.2", "ipAnc":"239.100.1.3", "portVideo":48000, "portAudio":48010, "portData":48020, \
+"fpgaAuto":1, "videoHeight":1080, "videoWidth":1920, "videoFps":59, "colorSpace":"YCbCr-444", "colorDepth":16, "videoIsIntlce":1, \
+"audioSampRate":"44.1KHz", "audioChannels":2, "audioDepth":16, "audioPktSize":"1ms", "isConnect":0 }' http://192.168.167.3/service -v -i
+
+
+Web Page tests
+-----------------------
+
+curl -d "fpgaAuto=Manual&name=Jack-767&ipVideo=239.120.1.1&ipAudio=239.120.1.2&ipAnc=239.120.1.3\
+&portVideo=48500&portAudio=48610&portData=48720&videoWidth=960&videoHeight=480&videoIsIntlce=3&videoFps=23&colorDepth=12\
+&colorSpace=1&audioChannels=4&audioSampRate=2&audioPktSize=1" -X POST http://192.168.167.3/setting 
+
 
 
 curl -d "urlSdpVideo=http://192.168.166.2/vedio.sdp&urlSdpAudio=http://192.168.166.2/audio.sdp&ipVideo=240.0.0.1&ipAudio=240.0.0.2&portVideo=23456&portAudio=23457\
@@ -37,8 +82,6 @@ curl http://192.168.166.2/service
 
 
 
-Test Cases
-===============
 #. poll: telnet connect and not input anything;
 #. small packets to assemble HTTP request: Windows telnet: parse header or length of input string;
 #. invalidate URL; reply 404; for REST API, reply JSON 404;
