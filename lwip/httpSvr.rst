@@ -29,21 +29,22 @@ SDP
 Test Cases
 ===============
 
+
 REST API tests
 -------------------
 
-curl -H "Content-Type: application/json" POST   -d '{"name":"Jack-RX", "isDHCP":0, "fpgaAuto":0}' http://192.168.168.102/service -v -i
+curl -H "Content-Type: application/json" POST   -d '{"name":"Jack-RX", "isDHCP":0, "fpgaAuto":0}' http://192.168.168.102/service -i
 
 curl -H "Content-Type: application/json" POST   -d '{"name":"Jack-RX2", "isDHCP":0, \
 "sdpVideoIp":"192.168.168.101", "sdpVideoPort":80, "sdpVideoUri":"video.sdp", "sdpAudioIp":"192.168.168.101", "sdpAudioPort":80, "sdpAudioUri":"audio.sdp", \
 "ipVideo":"239.100.1.1", "ipAudio":"239.100.1.2", "ipAnc":"239.100.1.3", "portVideo":48000, "portAudio":48010, "portData":48020, \
 "fpgaAuto":1, "videoHeight":1080, "videoWidth":1920, "videoFps":59, "colorSpace":"YCbCr-444", "colorDepth":16, "videoIsIntlce":1, \
-"audioSampRate":"44.1KHz", "audioChannels":2, "audioDepth":16, "audioPktSize":"1ms", "isConnect":0 }' http://192.168.168.102/service -v -i
+"audioSampRate":"44.1KHz", "audioChannels":2, "audioDepth":16, "audioPktSize":"1ms", "isConnect":0 }' http://192.168.168.102/service -i
 
 
 Simple REST API:
 
-curl -H "Content-Type: application/json" POST   -d '{"name":"SdiOverIP-767", "sdpVideoIp":"192.168.167.3", "sdpVideoPort":80, "sdpVideoUri":"video.sdp" }' http://192.168.167.3/service -v -i
+curl -H "Content-Type: application/json" POST   -d '{"name":"SdiOverIP-767", "sdpVideoIp":"192.168.167.3", "sdpVideoPort":80, "sdpVideoUri":"video.sdp" }' http://192.168.167.3/service -i
 
 
 REST API for one set of parameters:
@@ -52,7 +53,7 @@ curl -H "Content-Type: application/json" POST   -d '{"name":"Jack-RX", "version"
 "sdpVideoIp":"192.168.167.4", "sdpVideoPort":8080, "sdpVideoUri":"video2.sdp", "sdpAudioIp":"192.168.167.4", "sdpAudioPort":8080, "sdpAudioUri":"audio2.sdp", \
 "ipVideo":"239.100.11.1", "ipAudio":"239.100.12.2", "ipAnc":"239.100.13.3", "portVideo":48100, "portAudio":48210, "portData":48320, \
 "fpgaAuto":1, "videoHeight":720, "videoWidth":1080, "videoFps":23, "colorSpace":"YCbCr-444", "colorDepth":16, "videoIsIntlce":3, \
-"audioSampRate":"96KHz", "audioChannels":4, "audioDepth":24, "audioPktSize":"125mks", "isConnect":0 }' http://192.168.167.3/service -v -i
+"audioSampRate":"96KHz", "audioChannels":4, "audioDepth":24, "audioPktSize":"125mks", "isConnect":0 }' http://192.168.167.3/service -i
 
 
 REST API for another set of parameters:
@@ -61,7 +62,7 @@ curl -H "Content-Type: application/json" POST   -d '{"name":"SdiOverIP-767", "ve
 "sdpVideoIp":"192.168.167.3", "sdpVideoPort":80, "sdpVideoUri":"video.sdp", "sdpAudioIp":"192.168.167.3", "sdpAudioPort":80, "sdpAudioUri":"audio.sdp", \
 "ipVideo":"239.100.1.1", "ipAudio":"239.100.1.2", "ipAnc":"239.100.1.3", "portVideo":48000, "portAudio":48010, "portData":48020, \
 "fpgaAuto":1, "videoHeight":1080, "videoWidth":1920, "videoFps":59, "colorSpace":"YCbCr-444", "colorDepth":16, "videoIsIntlce":1, \
-"audioSampRate":"44.1KHz", "audioChannels":2, "audioDepth":16, "audioPktSize":"1ms", "isConnect":0 }' http://192.168.167.3/service -v -i
+"audioSampRate":"44.1KHz", "audioChannels":2, "audioDepth":16, "audioPktSize":"1ms", "isConnect":0 }' http://192.168.167.3/service -i
 
 
 Web Page tests
