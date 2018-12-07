@@ -40,4 +40,4 @@ Video
 #. **FPS**: 2:23; 3:24; 5:25: 6:29; 7:30; 9:50; 10:59; 11:60;
 #. **Width**:
 #. **Height**: 
-#. **Interlaces: 0: Interlaced; 1: PsF; 3: Progressive;
+#. **Interlaces**: 0: Interlaced; 1: PsF; 3: Progressive;
