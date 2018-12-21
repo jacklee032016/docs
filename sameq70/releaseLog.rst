@@ -3,6 +3,40 @@ Release version and log
 ##################################
 Sep.7th, 2018	Jack Lee
 
+
+12.18, 2018
+----------------
+* tcpip: add 8KB memory to heap of RTOS to make it more ;
+* Strong mac driver:
+  * Disable Interrupts when task is processing packet;
+  * Disable RX interrupt when buffers are re-populated after some errors happen, such as buffer is used up;
+  * When something is wrong, reinit rx hardware and the DMA buffers;
+  * Control interrupt speed of ethernet frame in mac controller to keep OS stable and resonse quickly;
+  * Diable multicast when system startup; enable multicast after system startup, eg. get IP address;
+* Improve performance of all kind services: REST API/IP command, web pages;
+  * Restore operation after buffers have been used up;
+* MCU Firmware update by web browser when media is playing;
+* FPGA Firmware update by web browser when media is playing;
+* MAC address can be random again once MAC address is configured, even after factory reset;
+* Add 1KB buffer for command line interface;
+* SDP http client:
+  * Process HTTP response which is distributed in multiple IP packets;
+  * Process SDP response from AJA's TX;
+  * Save parameters from SDP response after configuration finished;
+  * Process non-exists/wrong URIs;
+* Debug the problem: configuration data is crashed after MCU firmware has been updated;
+  * Update bootloader and OS firmware;
+* Add debug interface for HTTP server; 
+* Add debug interface for HTTP client; 
+
+
+
+
+12.17, 2018
+----------------
+Resrite driver of MAC controller, fixing problem of packet lossing;
+SDP HTTP client;
+
 Oct.22, 2018
 ====================
 Debug bootup problem of bootloader caused by RS232 driver when chip is null or chip is ``chiperase``d;
