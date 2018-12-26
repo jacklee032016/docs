@@ -4,6 +4,64 @@ Release version and log
 Sep.7th, 2018	Jack Lee
 
 
+Debuggings, 12.26, 2018
+===========================
+
+Bug of "tcpip: [eosMain.c-29.vApplicationMallocFailedHook()]: "
+------------------------------------------------------------------
+* When DHCP renew IP address, protocol status_callback() is called again, and then all program about protocol stack are going to restart again,
+* such as tasks, timers, so the heap of RTOS is not enough for all of these.
+
+* For example, telnet can't take port 21 again; tasks, timers, semaphores use about 40KB memory (50*1024-11576);
+
+* Add variable to track the count of IP address active, then tasks/timers can only be started when it is first time;
+
+* Startup flow:
+   * start protocol:
+   * start tcp task and initial lwip, such as sys_init;
+   * start MAC and PHY in init_done() in the context of task tcp;
+      * start MAC task;
+      * start PHY;
+   * start DHCP or set static IP;
+   
+   * callback of status
+      * start telnet;
+      * start httpd, ipcmd, hcd etc,
+          
+
+
+Bug of system crash when poll to maximum, and then close connection
+---------------------------------------------------------------------
+* Sometimes crash happens, sometimes everything is OK when excution like that.
+
+* Set TCP_PCB and its data when connection is closed in FSM (eg. in task of HTTP server), tcp task will operate on them, and httpd task also operate on them;
+
+* If one task is prompted when it is operating one of the data member of TCP_PCB, such as recv, arg, sent, etc, then crash will happen;
+
+* So only tcp task can close connection, FSM/httpd must wait the operation of tcp task:
+   * poll event is directly handled by TCP task;
+   * close event is directly handled by TCP task;
+
+
+"TypeError: NetworkError when attemping to fetch resource" in browser after firmware is updated
+-----------------------------------------------------------------------------------------------------
+* protocol handle of webpage/updatefirmware are handled in FSM;
+   * data receiving for firmware updating is handled in INIT state;
+   * Result replies are handled in entering handle of connection (web page and firmware updating);
+* Result reply of Firmware update is commented by debug option in httpSend function;
+
+
+SYS_LIGHTWEIGHT_PROT = 1
+-----------------------------
+
+assert of 'pbuf->ref > 0' failed
+---------------------------------------
+
+
+Update firmware through python script failed
+-----------------------------------------------
+
+
 12.18, 2018
 ----------------
 * tcpip: add 8KB memory to heap of RTOS to make it more ;
