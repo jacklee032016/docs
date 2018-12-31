@@ -3,6 +3,12 @@ Release version and log
 ##################################
 Sep.7th, 2018	Jack Lee
 
+12.31, 2018
+===========================
+* Add IP commands "reboot", "blink_led";
+* Debug problem of json format in IP command;
+* Add debug interface for IP Command;
+
 
 Debuggings, 12.26, 2018
 ===========================
