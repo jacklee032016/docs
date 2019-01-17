@@ -3,6 +3,17 @@ Release version and log
 ##################################
 Sep.7th, 2018	Jack Lee
 
+01.17, 2019
+===========================
+* Support security chip;
+* New web pages: update IP/RS232; reset; security status; Video params;
+* Update firmware when first FPGA image is damaged;
+* Enhanced firmware updating when cable is plugged off or connection is broken because of network jam;
+* Fix the problem pbuf->ref is incorrect;
+* Fix the problem of crash (no response of web pages) sometimes after firmware has been updated;
+* Delay response for HTTP POST requests;
+
+
 12.31, 2018
 ===========================
 * Add IP commands "reboot", "blink_led";

@@ -8,7 +8,7 @@ FPGA Configuration Logs
 ==============================
 
 ======  ================  ====================  ==================  ========================  ======================= 
-Index    Image Format       Transport Format      Register Vlaue      Web Info                        SDP
+Index    Image Format       Transport Format      Register Value      Web Info                        SDP
 ======  ================  ====================  ==================  ========================  ======================= 
   1      Interlaced            Segmented              0                Interlaced               interlace
   2      Progressive           Progressive            3                Progressive Level A         none
