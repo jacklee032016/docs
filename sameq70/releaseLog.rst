@@ -3,6 +3,12 @@ Release version and log
 ##################################
 Sep.7th, 2018	Jack Lee
 
+01.21, 2019
+===========================
+* Fix bug of parsing SDP audio pktTime;
+* Tune parameter of SDP audio ptime from 0.12 to 0.125;
+
+
 01.17, 2019
 ===========================
 * Support security chip;
