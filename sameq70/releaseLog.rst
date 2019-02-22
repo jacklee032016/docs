@@ -3,10 +3,99 @@ Release version and log
 ##################################
 Sep.7th, 2018	Jack Lee
 
+02.21, 2019
+===========================
+TX: Version: 1.1.1; Built: Feb 19 2019 09:21:28
+RX: Version: 1.1.1; Built: Feb 19 2019 09:21:47
+
+* Debug the problem of system crash from HTTP server memory failure in the case of maximum number HTTP connection have been allocated;
+* "mediaSet" of REST APIs for TX is read-only;
+* "hc" command show SDP service information in TX;
+* Remove 'poll' task which is used to send media parameters to 811 or RX;
+* Enlarge the delay of building TCP to SDP service to 4 seconds from 2 seconds to improve performance of SDP client;
+
+
+
+02.19, 2019
+===========================
+TX: Version: 1.1.1; Built: Feb 19 2019 09:21:28
+RX: Version: 1.1.1; Built: Feb 19 2019 09:21:47
+
+* REST API: add "rsData":"12345678abcdef" to supports RS232 data;
+* Add ancillary SDP: TX provides SDP; RX accesses and parses SDP;
+* REST API: add ancillary SDP support: "sdpAncIp":"192.168.168.64", "sdpAncPort":80, "sdpAncUri":"anc.sdp";
+* Field of "mediaSet" modification: support "SDP/Auto/Manual"; Factory default is "Auto";
+* When "mediaSet" set as "SDP", SDP client on TX will poll SDP every 30 seconds; at same time, TX will poll FPGA every 30 seconds;
+* Add command "hc" to display statistics of SDP requests;
+* Output message when SDP request failed for some reasons;
+* Add system timestamp which count from the time of startup;
+* Fixed the problem: "reset" of REST API always reply 1;
+
+Please reset to the factory configuration after updating from old version, because new configuration data is added; otherwise the result is undetermined.
+
+02.04, 2019
+===========================
+RX/TX build:Feb  4 2019 09:53:58
+* Field of REST API: "model" from "500767" to "500767-RX", or "500767-TX",
+
+01.30, 2019
+===========================
+Bootloader:  Built: Jan 31 2019 13:14:20
+RX/TX: Built: Jan 31 2019 13:13:58
+* sdp urls of TX are read-only, writable for RX;
+* Add prompt for browsers of Chrome and FireFox;
+* Add delay of 500 ms for read I2C register after DONE pin of FPGA is high when second image is used;
+* Change field name from 'fpgaAuto' to 'mediaSet';
+* Change vidFps of IP command to string, not integer;
+* Add validation of firmware update;
+
+
+
+01.28, 2019
+===========================
+REST APIs
+---------------
+* Add "reset:0/1"; reset will be delay for 3 seconds;
+* Add "netmask":"xxx.xxx.xxx.xxx";
+* Add "rs232Baudrate":9600/19200/38400/57600/115200;
+* Add "rs232DataBit":7/8;
+* Add "rs232Parity":"none/odd/even";
+* Add "rs232StopBit":1/2;
+* Modify delay of 'reboot' to 3 seconds;
+* Modify "MAC":"xx:xx:xx:xx:xx:xx" as read-only;
+* Modify video frame rate: 23-->23.98; 29-->29.97; 59-->59.94;
+
+
+Web pages
+---------------
+* Support Chrome and Edge updating firmware;
+* Modify the message after firmware updating (MCU and FPGA);
+* Correct "3GB 1080p59.97" to "3GB 1080p59.94";
+* Modify the message after Factory Reset;
+* Fix the problems of show info in firmware update pages;
+
+SDP
+--------------
+* Read RTP Payload Type from fpga in TX, code in SDP, decode and write to fpga in RX;
+
+01.22, 2019
+===========================
+* Enhance the deteck of finish status for MCU firmware update;
+
+01.24, 2019
+===========================
+* Update fpga firmware to the position of the second image;
+
+01.23, 2019
+===========================
+* Fix the bug of checking finish status of MCU firmware updating;
+
+
 01.21, 2019
 ===========================
 * Fix bug of parsing SDP audio pktTime;
 * Tune parameter of SDP audio ptime from 0.12 to 0.125;
+* Add delay to 2 seconds for reboot;
 
 
 01.17, 2019
